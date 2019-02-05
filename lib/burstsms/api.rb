@@ -28,7 +28,7 @@ module BurstSms
     element :api_method, String, :tag => 'method'
     
     has_one :params, String
-    element :response
+    element :response, Hash
     
     
     def initialize(api_key, api_secret)
