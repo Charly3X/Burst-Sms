@@ -28,7 +28,7 @@ module BurstSms
     element :api_method, String, :tag => 'method'
     
     has_one :params, String
-    
+    element :response
     
     
     def initialize(api_key, api_secret)
@@ -68,6 +68,7 @@ module BurstSms
     def post_to_api(request_xml)
       #XML request has to be wrapped as a 'request' param in body
       response = HTTParty.post( BurstSms::API_URL, :body => "request=#{request_xml}" )
+      self.response = response
     end
     
   end
