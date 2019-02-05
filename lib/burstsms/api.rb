@@ -42,7 +42,7 @@ module BurstSms
     private
     
     def sanitize_numbers(recipients)
-      Array(recipients).map{|n| n.gsub(/[^0-9]/i, '').gsub(/\A(04)|\A(4)/, '614')}.delete_if{|n| n.length != 11 || !n.start_with?('614')}.uniq.join(',')
+      Array(recipients).map{|n| n}.uniq.join(',')
     end
     
     def encode_msg(message)
